@@ -23,46 +23,71 @@
         <figure>
           <img src="https://ifrs.edu.br/wp-content/uploads/2019/10/Fachada-da-Sede-do-campus-Porto-Alegre-1.jpg" width="1600" height="1600"/>
         </figure>
-        <h1>IFRS POA</h1>
-        <p>Cupiditate non provident...</p>
-        <p>Ut enim ad minima veniam...</p>
+        <h1>GSAP - GreenSock Animation Platform</h1>
+        <p>Apresentação Interativa sobre o framework GSAP</p>
+        <p>Desenvolvido para a disciplina de Web Design</p>
       </div>
     </section>
+  
     <section class="section section--secondary">
       <div class="section__content">
-        <p>Nam libero tempore...</p>
-        <h2>At vero eos et accusamus.</h2>
+        <h2>O que é o GSAP?</h2>
+        <p>GSAP é um framework JavaScript para criar animações de alta performance. Com ele, você pode animar qualquer coisa na web com facilidade.</p>
       </div>
     </section>
+  
     <section class="section section--tertiary">
       <div class="section__content">
-        <h2>Qui officia deserunt mollit anim id est laborum.</h2>
-        <p>Et harum quidem rerum...</p>
+        <h2>Quando surgiu?</h2>
+        <p>Criado em 2008 pela empresa GreenSock, o GSAP é hoje referência no mercado de animações web.</p>
       </div>
     </section>
+  
     <section class="section section--quaternary">
       <div class="section__content">
-        <h2>Qui officia deserunt mollit anim id est laborum.</h2>
-        <p>Et harum quidem rerum...</p>
+        <h2>Para que serve?</h2>
+        <p>Ideal para animar textos, imagens, SVGs, rolagens e interações. Muito usado em landing pages, apresentações e dashboards.</p>
       </div>
     </section>
+  
     <section class="section section--quinary">
       <div class="section__content">
-        <h2>Qui officia deserunt mollit anim id est laborum.</h2>
-        <p>Et harum quidem rerum...</p>
+        <h2>Estatísticas</h2>
+        <p>Mais de 12 milhões de sites usam GSAP, incluindo grandes marcas como Google, Netflix e Microsoft.</p>
       </div>
     </section>
+  
     <section class="section section--senary">
-      <div class="section__content">
-        <h2>Qui officia deserunt mollit anim id est laborum.</h2>
-        <p>Et harum quidem rerum...</p>
+      <div class="section__content" style="display: flex;">
+        <div>
+          <h2>Exemplo: Clique para animar</h2>
+          <p>Clique no botão abaixo para ver uma animação com GSAP:</p>
+          <div id="animatedBox"></div>
+        </div>  
+        <div id="controlPanel">
+          <h3>Controle de Animação</h3>
+          <label>Movimento horizontal (x): <input type="number" id="textH" value="100"></label><br>
+          <label>Rotação (deg): <input type="number" id="rotation" value="360"></label><br>
+          <label>Duração (s): <input type="number" step="0.1" id="duration" value="1"></label><br>
+          <label>Ease:
+          <select id="easeSelect">
+            <option value="power1.inOut">power1.inOut</option>
+            <option value="power2.out">power2.out</option>
+            <option value="bounce.out">bounce.out</option>
+            <option value="elastic.out(1, 0.3)">elastic.out</option>
+          </select>
+          </label><br><br>
+          <button id="animateBtn">Aplicar</button>
+        </div>
       </div>
+      
     </section>
-      </section>
-</main>
+  </main>
+  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <script src="./script.js" defer></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /* Cores e variáveis */
 $primary: #e8eb63;
 $secondary: #9bfebc;
@@ -101,14 +103,16 @@ h1, h2, h3, h4, h5 {
   }
 
   &--senary {
+
     background: $senary;
+
   }
 
   &__content {
     max-width: 900px;
     margin: 0 auto;
     padding: 80px 40px;
-  }
+}
 }
 
 @keyframes float {
@@ -117,5 +121,67 @@ h1, h2, h3, h4, h5 {
   }
   to {
     transform: translateY(50%);
+  }
+}
+
+button {
+  background: $accent;
+  border: none;
+  padding: 10px 20px;
+  color: $text;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: color.adjust($accent, $lightness: -10%);
+  }
+}
+
+#animatedBox {
+  width: 100px;
+  height: 100px;
+  background: #2d3436;
+  margin-top: 20px;
+  transition: background-color 0.2s ease, transform 0.3s ease;
+  
+  &:hover {
+    background-color: color.adjust($accent, $lightness: -10%);
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+#controlPanel {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  width: 300px;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input, select {
+    margin-left: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: $accent;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: color.adjust($accent, $lightness: -10%);
+    }
   }
 }

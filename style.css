@@ -112,5 +112,59 @@ h5 {
     transform: translateY(50%);
   }
 }
+button {
+  background: #fdcb6e;
+  border: none;
+  padding: 10px 20px;
+  color: #2d3436;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: rgb(252.306122449, 184.9591836735, 59.693877551);
+}
+
+#animatedBox {
+  width: 100px;
+  height: 100px;
+  background: #2d3436;
+  margin-top: 20px;
+  transition: background-color 0.2s ease, transform 0.3s ease;
+}
+#animatedBox:hover {
+  background-color: rgb(252.306122449, 184.9591836735, 59.693877551);
+  transform: scale(1.05);
+}
+#animatedBox:active {
+  transform: scale(0.95);
+}
+
+#controlPanel {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  width: 300px;
+}
+#controlPanel label {
+  display: block;
+  margin-bottom: 10px;
+}
+#controlPanel input, #controlPanel select {
+  margin-left: 10px;
+}
+#controlPanel button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #fdcb6e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#controlPanel button:hover {
+  background-color: rgb(252.306122449, 184.9591836735, 59.693877551);
+}
 
 /*# sourceMappingURL=style.css.map */
