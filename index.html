@@ -6,10 +6,9 @@
   <title>GSAP Demo</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Mulish:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Conteúdo fornecido -->
   <span class="keyhole" aria-hidden="true"></span>  
   <span class="arrow" aria-hidden="true">
     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-5 -5 30 30">
@@ -19,54 +18,110 @@
 
   <main class="main">
     <section class="section section--primary">
-      <div class="section__content">
+      <div class="section__content img__container">
         <figure>
           <img src="https://ifrs.edu.br/wp-content/uploads/2019/10/Fachada-da-Sede-do-campus-Porto-Alegre-1.jpg" width="1600" height="1600"/>
         </figure>
+      </div>
+      <div class="section__content" style="text-align: center;">  
         <h1>GSAP - GreenSock Animation Platform</h1>
         <p>Apresentação Interativa sobre o framework GSAP</p>
-        <p>Desenvolvido para a disciplina de Web Design</p>
+        <p>Desenvolvido para a disciplina de Web Design por André Sizer e Lucas Pacheco</p>
       </div>
     </section>
   
     <section class="section section--secondary">
       <div class="section__content">
-        <h2>O que é o GSAP?</h2>
-        <p>GSAP é um framework JavaScript para criar animações de alta performance. Com ele, você pode animar qualquer coisa na web com facilidade.</p>
+        <h2>Recursos do GSAP</h2>
+        <ul>
+          <li>Facilidade para criar animações complexas</li>
+          <li>Performance otimizada, mesmo em dispositivos mais antigos</li>
+          <li>Compatível com todos os navegadores modernos</li>
+          <li>Controle total sobre a linha do tempo das animações com o <code>gsap.timeline()</code></li>
+          <li>Suporte a plugins como ScrollTrigger, Draggable, SplitText, MotionPathPlugin e outros</li>
+          <li>Integração com frameworks modernos como React, Vue e Angular</li>
+          <li>Animações baseadas em eventos e interações do usuário</li>
+        </ul>
       </div>
     </section>
   
     <section class="section section--tertiary">
       <div class="section__content">
-        <h2>Quando surgiu?</h2>
-        <p>Criado em 2008 pela empresa GreenSock, o GSAP é hoje referência no mercado de animações web.</p>
+        <h2>Casos de Uso</h2>
+        <ul>
+          <li>Landing pages com animações que destacam produtos</li>
+          <li>Apresentações interativas como esta</li>
+          <li>Jogos e experiências imersivas baseadas em navegador</li>
+          <li>Interfaces animadas para dashboards e SPAs</li>
+          <li>Storytelling com movimento guiado por rolagem</li>
+          <li>Prototipagem rápida de interações para clientes</li>
+        </ul>
       </div>
     </section>
-  
+ 
     <section class="section section--quaternary">
       <div class="section__content">
-        <h2>Para que serve?</h2>
-        <p>Ideal para animar textos, imagens, SVGs, rolagens e interações. Muito usado em landing pages, apresentações e dashboards.</p>
+        <h2>Funcionalidades Técnicas</h2>
+        <ul>
+          <li><code>gsap.to()</code> e <code>gsap.from()</code> – animar propriedades CSS, SVG, canvas, entre outros</li>
+          <li><code>ScrollTrigger</code> – ativa animações com base na rolagem da página</li>
+          <li><code>Draggable</code> – permite que elementos sejam arrastados com suporte a eventos</li>
+          <li><code>MotionPathPlugin</code> – anima objetos ao longo de caminhos SVG</li>
+          <li><code>Flip</code> – muda um elemento de lugar ou aparência no DOM.</li>
+          <li>Controle de estados com pausas, reversão e reinício de animações</li>
+          <li>Sincronização precisa de múltiplas animações com timeline</li>
+        </ul>
+        <p>O GSAP é altamente modular, permitindo que você utilize apenas os recursos necessários para o seu projeto.</p>
+        <p>Além disso, o GSAP é open-source e possui uma comunidade ativa que contribui com plugins e extensões.</p>
       </div>
     </section>
-  
+
     <section class="section section--quinary">
       <div class="section__content">
-        <h2>Estatísticas</h2>
-        <p>Mais de 12 milhões de sites usam GSAP, incluindo grandes marcas como Google, Netflix e Microsoft.</p>
+        <h2>Histórico e Quem utiliza?</h2>
+        <p>O GSAP (GreenSock Animation Platform) foi lançado pela GreenSock em 2008 como uma solução para criar animações web de alta performance. Desde então, tornou-se uma das bibliotecas de animação mais populares, sendo amplamente adotada por desenvolvedores e designers ao redor do mundo.</p>
+        <p>O GSAP é utilizado por empresas de destaque no mercado, incluindo:</p>
+        <ul>
+          <li>Google – para animações em interfaces experimentais</li>
+          <li>Netflix – efeitos visuais e interações personalizadas</li>
+          <li>Microsoft – animações em sites institucionais e internos</li>
+          <li>Coca-Cola e Nike – campanhas publicitárias online</li>
+          <li>Agências criativas e desenvolvedores independentes</li>
+        </ul>
+        <p>É também muito comum em portfólios, apresentações interativas e jogos web.</p>
+      </div>
+    </section>
+
+    <section class="section section--flip">
+      <div class="section__content">
+        <h2>Exemplo com GSAP Flip</h2>
+        <p>Clique em um item para movê-lo entre os containers com animação suave:</p>
+        <div class="flip-container">
+          <div id="boxA" class="box-container">
+            <div class="box" onclick="flipBox(this)">Caixa 1</div>
+          </div>
+          <div id="boxB" class="box-container"></div>
+        </div>
       </div>
     </section>
   
     <section class="section section--senary">
-      <div class="section__content" style="display: flex;">
-        <div>
-          <h2>Exemplo: Clique para animar</h2>
-          <p>Clique no botão abaixo para ver uma animação com GSAP:</p>
-          <div id="animatedBox"></div>
-        </div>  
+      <div class="section__content">
+        <div id="animationContainer">
+          <p>Utilize o painel de configuração para controlar a movimentação da caixa.</p>
+          <h2>Exemplo Interativo</h2>
+          <h3>Se o quadrado não estiver aparecendo, reinicie (F5)</h3>
+          <p>Experimente arrastar e manipular a caixa abaixo.</p>
+          <p>Expermiente colocar a caixa no início da linha e dar dois cliques nela.</p>
+          <p>Expermiente usar o scroll do mouse em cima da caixa.</p>
+            <svg width="500" height="200" viewBox="0 0 500 200" style="overflow: visible;">
+                <path id="motionPath" d="M10,150 C100,50 200,250 300,150 S400,50 490,150" fill="none" stroke="#ccc" stroke-width="2" />
+            </svg>
+            <div id="animatedBox"></div>
+        </div> 
         <div id="controlPanel">
           <h3>Controle de Animação</h3>
-          <label>Movimento horizontal (x): <input type="number" id="textH" value="100"></label><br>
+          <label>Movimento (x): <input type="number" id="textH" value="100"></label><br>
           <label>Rotação (deg): <input type="number" id="rotation" value="360"></label><br>
           <label>Duração (s): <input type="number" step="0.1" id="duration" value="1"></label><br>
           <label>Ease:
@@ -81,13 +136,25 @@
         </div>
       </div>
       
+      
     </section>
   </main>
   
+  <footer class="footer">
+    <p>Feito com ❤️ por André Sizer e Lucas Pacheco usando GSAP</p>
+  </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src="./script.js" defer></script>
+
+    <div id="navigationButtons">
+      <button id="prevSection">←</button>
+      <button id="nextSection">→</button>
+    </div>
 </body>
 </html>

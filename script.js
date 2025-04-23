@@ -1,5 +1,86 @@
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(Draggable);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, Draggable, Flip);
+
+(function () {
+  const sections = document.querySelectorAll(".section");
+  const nextButton = document.getElementById("nextSection");
+  const prevButton = document.getElementById("prevSection");
+
+  let currentSectionIndex = 0;
+
+  // Função para navegar para uma seção específica
+  function navigateToSection(index) {
+    if (index < 0 || index >= sections.length) return;
+
+    const targetSection = sections[index];
+    gsap.to(window, {
+      scrollTo: { y: targetSection, autoKill: false },
+      duration: 1,
+      ease: "bounce.out",
+    });
+
+    currentSectionIndex = index;
+  }
+
+  // Evento para avançar para a próxima seção
+  nextButton.addEventListener("click", () => {
+    navigateToSection(currentSectionIndex + 1);
+  });
+
+  // Evento para voltar para a seção anterior
+  prevButton.addEventListener("click", () => {
+    navigateToSection(currentSectionIndex - 1);
+  });
+
+  // Configuração adicional para arrastar o box
+  const box = document.getElementById("animatedBox");
+  Draggable.create(box, {
+    type: "x,y",
+    bounds: window,
+    inertia: true,
+  });
+
+  // Animação ao dar dois cliques na caixa
+  box.addEventListener("dblclick", () => {
+    gsap.to(box, {
+      duration: 2,
+      ease: "power1.inOut",
+      motionPath: {
+        path: "#motionPath",
+        align: "#motionPath",
+        alignOrigin: [0.5, 0.5],
+        autoRotate: true,
+      },
+    });
+  });
+})();
+
+(function () {
+  const box = document.getElementById("animatedBox");
+
+  // Animação usando MotionPathPlugin ao dar dois cliques
+  function animateBox() {
+    gsap.to(box, {
+      duration: 2, // Duração da animação
+      ease: "power1.inOut", // Tipo de easing
+      motionPath: {
+        path: "#motionPath", // Caminho SVG
+        align: "#motionPath", // Alinha o elemento ao caminho
+        alignOrigin: [0.5, 0.5], // Centraliza o elemento no caminho
+        autoRotate: true // Faz o elemento girar ao longo do caminho
+      }
+    });
+  }
+
+  // Adiciona o evento de duplo clique à caixa
+  box.addEventListener("dblclick", animateBox);
+
+  // Configuração adicional para arrastar o box
+  Draggable.create(box, {
+    type: "x,y",
+    bounds: window,
+    inertia: true
+  });
+})();
 
 // Animação ao clicar no botão com vai e volta
 const button = document.getElementById("animateBtn");
@@ -115,3 +196,28 @@ button.addEventListener("click", toggleAnimation);
     });
   }
 })();
+
+function flipBox(element) {
+  const state = Flip.getState(element);
+
+  const containerA = document.getElementById("boxA");
+  const containerB = document.getElementById("boxB");
+
+  const isInA = containerA.contains(element);
+
+    // Move o elemento para o outro container ANTES de animar
+    if (containerA.contains(element)) {
+      containerB.appendChild(element);
+    } else {
+      containerA.appendChild(element);
+    }
+
+  Flip.from(state, {
+    duration: 0.6,
+    ease: "elastic.out(1, 0.9)",
+    onComplete: () => {
+      // Atualiza o texto após a animação
+      element.innerText = isInA ? "Caixa 2" : "Caixa 1";
+    }
+  });
+}
